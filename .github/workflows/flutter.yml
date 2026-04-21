@@ -13,14 +13,15 @@ jobs:
 
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.0'
+          flutter-version: '3.19.0'
+
+      - run: flutter doctor
 
       - run: flutter pub get
 
-      - run: flutter build apk --release
+      - run: flutter build apk --debug
 
       - uses: actions/upload-artifact@v3
         with:
-          name: app-release
-          path: build/app/outputs/flutter-apk/app-release.apk
-        
+          name: app-debug
+          path: build/app/outputs/flutter-apk/app-debug.apk
